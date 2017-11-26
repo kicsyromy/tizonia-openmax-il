@@ -15,4 +15,17 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with Tizonia.  If not, see <http://www.gnu.org/licenses/>.
 
-SUBDIRS = gmusic soundcloud dirble youtube chromecast plex
+TESTS = check_tizplex
+
+check_PROGRAMS = check_tizplex
+
+check_tizplex_SOURCES = check_tizplex.c
+
+check_tizplex_CFLAGS = \
+	-I$(top_srcdir)/src/ \
+	@CHECK_CFLAGS@
+
+check_tizplex_LDADD = \
+	$(top_builddir)/src/libtizplex.la \
+	@CHECK_LIBS@
+

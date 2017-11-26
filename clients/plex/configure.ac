@@ -15,4 +15,32 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with Tizonia.  If not, see <http://www.gnu.org/licenses/>.
 
-SUBDIRS = gmusic soundcloud dirble youtube chromecast plex
+AC_PREREQ([2.67])
+AC_INIT([tizplex], [0.10.0], [juan.rubio@aratelia.com])
+AC_CONFIG_AUX_DIR([.])
+AM_INIT_AUTOMAKE([foreign color-tests silent-rules -Wall -Werror])
+AC_CONFIG_SRCDIR([config.h.in])
+AC_CONFIG_HEADERS([config.h])
+
+# Checks for programs.
+AC_PROG_CXX
+AC_PROG_AWK
+AC_PROG_CC
+AC_PROG_CPP
+AC_PROG_INSTALL
+AC_PROG_LN_S
+AC_PROG_MAKE_SET
+LT_INIT
+
+# Checks for libraries.
+AM_PATH_PYTHON([2.7])
+
+# Checks for header files.
+
+# Checks for typedefs, structures, and compiler characteristics.
+
+# Checks for library functions.
+
+AC_CONFIG_FILES([Makefile plexproxy/Makefile])
+AC_CONFIG_SUBDIRS([libtizplex])
+AC_OUTPUT

@@ -15,4 +15,8 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with Tizonia.  If not, see <http://www.gnu.org/licenses/>.
 
-SUBDIRS = gmusic soundcloud dirble youtube chromecast plex
+python_PYTHON = tizplexproxy.py
+
+.PHONY: lint
+lint:
+	pylint --msg-template="{path}:{line}: [{msg_id}({symbol}), {obj}] {msg}" ${python_PYTHON}
