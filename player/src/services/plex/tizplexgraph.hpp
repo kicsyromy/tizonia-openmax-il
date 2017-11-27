@@ -18,37 +18,37 @@
  */
 
 /**
- * @file   check_tizplex.c
- * @author Romeo Calota <romeo.calota@libertymail.net>
+ * @file   tizgmusicgraph.hpp
+ * @author Juan A. Rubio <juan.rubio@aratelia.com>
  *
- * @brief  Tizonia IL Common Unit Tests
+ * @brief  Google Play Music client graph
  *
  *
  */
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
+#ifndef TIZPLEXGRAPH_HPP
+#define TIZPLEXGRAPH_HPP
 
-#include <assert.h>
-#include <check.h>
-#include <stdlib.h>
+#include "tizservicegraph.hpp"
+#include "tizgraphops.hpp"
 
-#include "tizplex_c.h"
-
-START_TEST (dummy)
+namespace tiz
 {
-}
-END_TEST
+  namespace graph
+  {
+    // Forward declarations
+    class ops;
 
-int main (void)
-{
-  return EXIT_SUCCESS;
-}
+    class gmusic : public servicegraph
+    {
 
-/* Local Variables: */
-/* c-default-style: gnu */
-/* fill-column: 79 */
-/* indent-tabs-mode: nil */
-/* compile-command: "make check" */
-/* End: */
+    public:
+      gmusic ();
+
+    protected:
+      ops *do_init ();
+    };
+  }  // namespace graph
+}  // namespace tiz
+
+#endif // TIZPLEXGRAPH_HPP
